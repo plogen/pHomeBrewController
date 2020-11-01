@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30413.136
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "pHomeBrewController", "pHomeBrewController\pHomeBrewController.csproj", "{78BD0258-507C-40A7-9C90-95FBFE49DAC4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "pHomeBrewController", "pHomeBrewController\pHomeBrewController.csproj", "{78BD0258-507C-40A7-9C90-95FBFE49DAC4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Externals", "Externals", "{0D8D3EF7-4CCF-4C2E-9E78-7D98B4C65B4B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MqttClientService", "..\MqttClientService\MqttClientService.csproj", "{96FD42CB-80A5-4AFF-95E9-75D4596382C3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,9 +19,16 @@ Global
 		{78BD0258-507C-40A7-9C90-95FBFE49DAC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{78BD0258-507C-40A7-9C90-95FBFE49DAC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{78BD0258-507C-40A7-9C90-95FBFE49DAC4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96FD42CB-80A5-4AFF-95E9-75D4596382C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96FD42CB-80A5-4AFF-95E9-75D4596382C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96FD42CB-80A5-4AFF-95E9-75D4596382C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96FD42CB-80A5-4AFF-95E9-75D4596382C3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{96FD42CB-80A5-4AFF-95E9-75D4596382C3} = {0D8D3EF7-4CCF-4C2E-9E78-7D98B4C65B4B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D47AAB6D-2CFC-40BC-895B-8E72A4122BF2}
