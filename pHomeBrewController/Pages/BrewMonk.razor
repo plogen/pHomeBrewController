@@ -1,0 +1,49 @@
+﻿@page "/brewMonk"
+
+@using System.Text;
+@using MqttService;
+@using MQTTnet;
+@inject MqttClientService MqttClientService;
+@implements IDisposable
+
+<h3>BrewMonk</h3>
+<RadzenButton Click="@ButtonClicked" Text="@payload"></RadzenButton>
+<RadzenButton Click="@ButtonClicked2" Text="Test"></RadzenButton>
+
+@code {
+
+    private Guid guid = new Guid();
+    private SubcribedTopic sub = new SubcribedTopic("pHome/energyMonitor/kWh", typeof(int));
+    private string payload = "Unknown";
+
+    protected override async Task OnInitializedAsync()
+    {
+        await MqttClientService.Sub(guid, sub);
+        MqttClientService.MessageReceived += OnSubscriberMessageReceived;
+    }
+
+
+    private void OnSubscriberMessageReceived(object sender, MqttApplicationMessageReceivedEventArgs x)
+    {
+        payload = Encoding.UTF8.GetString(x.ApplicationMessage.Payload);
+        StateHasChanged();
+    }
+
+
+    async void IDisposable.Dispose()
+    {
+        await MqttClientService.UnSub(guid, sub);
+    }
+
+
+    async void ButtonClicked()
+    {
+        await MqttClientService.SendMessage("/test/e2", payload);
+    }
+
+    async void ButtonClicked2()
+    {
+        await MqttClientService.SendMessage("/test/e3", "test");
+    }
+
+}
